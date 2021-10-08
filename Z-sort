@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+typedef long long ll ;
+typedef long double ld ;
+#define PI 3.1415926535897932384626433832795
+long long gcd(long long a,long long b)
+{
+    return a ? gcd(b%a,a):b;
+ 
+}
+long long lcm(long long a,long long b)
+{
+    return a/gcd(a,b)*b;
+}
+using namespace std;
+int main(){
+int n;   scanf("%d",&n);
+int arr[n+5];
+for(int i=1;i<=n;i++) scanf("%d",&arr[i]);
+sort(arr+1,arr+n+1);
+int p1=1,p2=n; 
+for(int i=1;i<=n;i++){
+if(i&1) cout<<arr[p1++]<<" ";
+else cout<<arr[p2--]<<" ";    
+}
+return 0;
+}
