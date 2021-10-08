@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+typedef long long ll ;
+typedef long double ld ;
+#define PI 3.1415926535897932384626433832795
+long long gcd(long long a,long long b)
+{
+    return a ? gcd(b%a,a):b;
+ 
+}
+long long lcm(long long a,long long b)
+{
+    return a/gcd(a,b)*b;
+}
+using namespace std;
+int main(){
+int n,m,k,x;  scanf("%d%d%d",&n,&m,&k);
+vector<int>v;
+int arr[n+5];  
+for(int i=0;i<n;i++)  scanf("%d",&arr[i]);  
+for(int i=0;i<n-1;i++){
+int temp=i+1;
+v.push_back(arr[temp]-arr[i]-1);    
+}
+sort(v.rbegin(),v.rend());
+ll sum=0;
+for(int i=0;i<k-1;i++) sum+=v[i]; 
+ll woerst_case=arr[n-1]-arr[0]+1;
+if(k==1)  cout<<woerst_case;
+else cout<<woerst_case-sum;  
+return 0;
+}
